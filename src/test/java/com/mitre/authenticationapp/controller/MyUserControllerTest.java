@@ -6,10 +6,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest
 public class MyUserControllerTest {
@@ -34,9 +32,9 @@ public class MyUserControllerTest {
     }
 
     @Test
-    public void testUser_shouldReceiveForbiddenStatus_whenNoUserIsLogged() throws Exception {
+    public void testUser_shouldReceiveUnauthorizedStatus_whenNoUserIsLogged() throws Exception {
         mvc.perform(get("/user"))
-                .andExpect(status().isForbidden());
+                .andExpect(status().isUnauthorized());
     }
 
     @Test
@@ -55,8 +53,8 @@ public class MyUserControllerTest {
     }
 
     @Test
-    public void testAdmin_shouldReceiveForbiddenStatus_whenNoUserIsLogged() throws Exception {
+    public void testAdmin_shouldReceiveUnauthorizedStatus_whenNoUserIsLogged() throws Exception {
         mvc.perform(get("/admin"))
-                .andExpect(status().isForbidden());
+                .andExpect(status().isUnauthorized());
     }
 }

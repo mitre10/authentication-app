@@ -23,8 +23,8 @@ public class MySimpleControllerTest {
     }
 
     @Test
-    public void testHome_shouldReceiveForbiddenStatus_whenRandomEndpointIsAccessed() throws Exception {
+    public void testHome_shouldReceiveNotFoundStatus_whenRandomEndpointIsAccessed() throws Exception {
         mvc.perform(get("/randomEndpoint"))
-                .andExpect(status().isForbidden());
+                .andExpect(status().isNotFound());
     }
 }
