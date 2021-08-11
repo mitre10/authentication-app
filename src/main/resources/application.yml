@@ -1,0 +1,3 @@
+mock:
+  user:
+    password: "${MOCK_USER_PASSWORD}"
