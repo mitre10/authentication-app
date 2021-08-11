@@ -3,4 +3,6 @@ spring:
     jdbcurl: "${PSQL_URL}"
     username: "${PSQL_USER}"
     password: "${PSQL_PASS}"
+    driver-class-name: org.postgresql.Driver
     initialization-mode: always
+

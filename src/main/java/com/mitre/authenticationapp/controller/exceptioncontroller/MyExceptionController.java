@@ -1,4 +1,4 @@
-package com.mitre.authenticationapp.exception;
+package com.mitre.authenticationapp.controller.exceptioncontroller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,11 +22,9 @@ public class MyExceptionController implements ErrorController {
 
         Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
 
-        System.out.println("status= " + status);
         if (status != null) {
             int statusCode = Integer.parseInt(status.toString());
 
-            System.out.println(statusCode);
             if (statusCode == HttpStatus.UNAUTHORIZED.value()) {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("401 Unauthorized");
             }
@@ -39,7 +37,6 @@ public class MyExceptionController implements ErrorController {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("404 Not Found");
             }
         }
-
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Something went bad");
     }
 }

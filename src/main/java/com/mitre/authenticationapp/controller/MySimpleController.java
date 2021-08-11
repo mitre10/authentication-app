@@ -15,6 +15,6 @@ public class MySimpleController {
     public ResponseEntity home() {
         log.info("hitting / route");
 
-        return ResponseEntity.ok("Welcome");
+        return ResponseEntity.ok("Welcome stranger!");
     }
 }

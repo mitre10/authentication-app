@@ -18,11 +18,4 @@ public class MyUserController {
 
         return ResponseEntity.ok("Welcome " + authentication.getName());
     }
-
-    @GetMapping("/admin")
-    public ResponseEntity<String> admin(Authentication authentication) {
-        log.info("hitting /admin route");
-
-        return ResponseEntity.ok("Welcome " + authentication.getName());
-    }
 }
