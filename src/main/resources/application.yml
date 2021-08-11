@@ -1,3 +1,6 @@
-mock:
-  user:
-    password: "${MOCK_USER_PASSWORD}"
+spring:
+  datasource:
+    jdbcurl: "${PSQL_URL}"
+    username: "${PSQL_USER}"
+    password: "${PSQL_PASS}"
+    initialization-mode: always
