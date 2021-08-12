@@ -21,7 +21,7 @@ public class MySimpleControllerTest {
     public void testHome_success() throws Exception {
         mvc.perform(get("/"))
                 .andExpect(status().isOk())
-                .andExpect(content().string("Welcome"));
+                .andExpect(content().string("Welcome stranger!"));
     }
 
     @Test
